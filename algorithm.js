@@ -31,6 +31,10 @@ function vectorSum(v) {
 //However, the only way to modify origin array is by copying value from one index to another
 function transform (origin, destination) {
 	//Parameter validation
+	if (origin.length != (destination.length+1)) {
+		console.log('Arrays have incorrect length')
+		return false
+	}
 	if ((origin[0] !== test_null) || origin.includes(test_null, 1)) {
 		console.log('Null value misused')
 		return false
