@@ -92,11 +92,10 @@ function transform (origin, destination) {
 		}
 		if (dependencies[minIndex] == 0) {
 			if (origin[0] === destination[rep_elems[minIndex]-1]) {
-				//If completing a dependency cycle, reset temporary slot so that other dependency cycles can be started
+				//If completing a dependency cycle, copy information from temporary slot
 				origin = copy(origin, 0, rep_elems[minIndex])
 				dependencies[cycleStart]--
 				cycleStart = -1
-				origin[0] = test_null
 			} else {
 				//No other elements require this elements' information, so just copy the value you want
 				origin = copy(origin, rep_elems[rep_objs.indexOf(destination[rep_elems[minIndex]-1])], rep_elems[minIndex])
